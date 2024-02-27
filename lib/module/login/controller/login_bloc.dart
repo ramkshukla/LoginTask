@@ -25,6 +25,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             MaterialPageRoute(
               builder: (context) => HomeView(
                 result: state.loginDTO.result,
+                captchaCode: state.loginDTO.responseDTO[0].captchaCode,
+                otp: state.loginDTO.responseDTO[0].otpCode,
               ),
             ),
           );
