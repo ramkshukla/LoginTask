@@ -57,6 +57,29 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
+
+
+
+
+    }
+
+     flavorDimensions "default"
+    productFlavors {
+        dev {
+            resValue "string", "app_name", "NatCarrot_Task_DEV"
+            dimension "default"
+            applicationIdSuffix ".dev"
+        }
+        uat {
+            resValue "string", "app_name", "NatCarrot_Task_UAT"
+            dimension "default"
+              applicationIdSuffix ".uat"
+        }
+        prod {
+            resValue "string", "app_name", "NatCarrot_Task_PROD"
+            dimension "default"
+            applicationIdSuffix ".prod"
+        }
     }
 }
 
