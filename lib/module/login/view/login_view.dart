@@ -14,6 +14,10 @@ class NetCarrotsLoginView extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
+            appBar: AppBar(
+              title: const Text("Login"),
+              centerTitle: true,
+            ),
             body: Center(
               child: state.isLoading
                   ? const CircularProgressIndicator()
