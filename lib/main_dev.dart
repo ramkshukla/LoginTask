@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:net_carrot_task/_utils/app_config.dart';
+import 'package:net_carrot_task/_utils/env_config.dart';
 import 'package:net_carrot_task/module/login/view/login_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  EnvConfig envConfig = development;
+  final AppConfig configuredApp = AppConfig(
+    envConfig: envConfig,
+    child: const MyApp(),
+  );
+
+  runApp(configuredApp);
 }
 
 class MyApp extends StatelessWidget {

@@ -1,6 +1,43 @@
 {
     "version": "0.2.0",
     "configurations": [
+
+        {
+            "name":"DEV",
+            "program": "lib/main_dev.dart",
+            "request": "launch",
+            "type":"dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "dev"
+            ]
+        },
+
+        {
+            "name": "UAT",
+            "program": "lib/main_uat.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "uat"
+            ]
+        },
+
+        {
+            "name": "Prod",
+            "program": "lib/main_prod.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "prod"
+            ]
+        },
+        
         {
             "name": "net_carrot_task(debug mode)",
             "request": "launch",
