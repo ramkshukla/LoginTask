@@ -10,22 +10,30 @@ class LoginRepoImpl implements LoginRepo {
   @override
   Future<LoginDTO> loginUser() async {
     final dio = Dio();
-
+    final dynamic body = {
+      "MobileNo": "9900000000",
+      "DeviceId": "Device001",
+      "OSType": "iOS",
+      "CaptchaCode": "",
+      "OTP": "",
+      "IsLoginFirst": "",
+      "FCMToken": ""
+    };
     try {
       final Response loginData = await dio.post(
         ApiEndPoints.login,
-        data: {
-          "MobileNo": "9900000000",
-          "DeviceId": "Device001",
-          "OSType": "iOS",
-          "CaptchaCode": "",
-          "OTP": "",
-          "IsLoginFirst": "",
-          "FCMToken": ""
-        },
+        data: body,
       );
-      final loginDTO = loginData.data["UserLoginAPI"] as Map<String, dynamic>;
-      return LoginDTO.fromJson(loginDTO);
+
+      if (loginData.statusCode == 200) {
+        final loginDTO = loginData.data["UserLoginAPI"] as Map<String, dynamic>;
+        return LoginDTO.fromJson(loginDTO);
+      } else {
+        return LoginDTO(
+          result: "",
+          responseDTO: [],
+        );
+      }
     } catch (e) {
       return LoginDTO(
         result: "",
